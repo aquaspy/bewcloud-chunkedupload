@@ -115,6 +115,7 @@ export default function MainFiles({
           const directoryPath = chosenFile.webkitRelativePath.replace(chosenFile.name, '');
           fileParentPath = `${path.value}${directoryPath}`;
         }
+        uploadProgress.value = '';
         try {
           if (chosenFile.size >= CHUNK_SIZE_BYTES) {
             await uploadFileChunked(chosenFile, fileParentPath);
